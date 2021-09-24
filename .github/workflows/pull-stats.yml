@@ -22,5 +22,6 @@ jobs:
         run: |
           git config --global user.name 'stats-admin'
           git config --global user.email 'wjh199455@gmail.com'
+          git add .
           git commit -am "ci: pulled latest stats"
           git push
