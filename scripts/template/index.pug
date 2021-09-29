@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+  body
+    h1 title 
+    h3 Content 
+    ul 
+      each item in links 
+       li 
+        a(href= item.path) #{item.name}
+    
