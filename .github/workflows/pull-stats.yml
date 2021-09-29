@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
+      - run: ls
       - run: node scripts/pull.js ${{secrets.APITOKEN}}
       - name: Commit report
         run: |
