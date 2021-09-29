@@ -57,5 +57,5 @@ Promise.all(
       .catch(console.log);
   })
 )
-  .then(() => generateHTML(join(__dirname, './stats')))
+  .then(() => generateHTML(join(__dirname, '../stats')))
   .then(() => publish());
