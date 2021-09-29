@@ -6,14 +6,11 @@ import { join } from 'path';
 const timestamp = new Date();
 const storePath = join(
   __dirname,
-  `../stats/${timestamp.getFullYear()}${timestamp
-    .getMonth()
-    .toString()
-    .padStart(2, '0')}${timestamp.getDate()}`
+  `../stats/${timestamp.getFullYear()}/${timestamp.getMonth()}/${timestamp.getDate()}`
 );
 
 if (!existsSync(storePath)) {
-  mkdirSync(storePath);
+  mkdirSync(storePath, { recursive: true });
 }
 
 const apis = [
@@ -30,14 +27,28 @@ const request = axios.create({
   headers: { Authorization: `Bearer ${args[0]}` },
 });
 
+apis.forEach((api) => {
+  const splitted = api.split('/');
+  const path = join(storePath, `./${splitted.slice(0, -1).join('/')}`);
+
+  if (!existsSync(path)) {
+    mkdirSync(path, { recursive: true });
+  }
+});
+
 Promise.all(
   apis.map((api) => {
     return request
       .get(api)
       .then((res) => {
         const splitted = api.split('/');
+
         writeFile(
-          join(storePath, `${splitted[splitted.length - 1]}.json`),
+          join(
+            storePath,
+            `./${splitted.slice(0, -1).join('/')}`,
+            `/${splitted[splitted.length - 1]}.json`
+          ),
           JSON.stringify(res.data)
         );
       })
