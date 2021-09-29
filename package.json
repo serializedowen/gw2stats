@@ -1,5 +1,5 @@
 {
-  "name": "personal-gw2-stats-repo",
+  "name": "gw2stats",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serializedowen/personal-gw2-stats-repo.git"
+    "url": "git+https://github.com/serializedowen/gw2stats.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/serializedowen/personal-gw2-stats-repo/issues"
+    "url": "https://github.com/serializedowen/gw2stats/issues"
   },
-  "homepage": "https://github.com/serializedowen/personal-gw2-stats-repo#readme",
+  "homepage": "https://github.com/serializedowen/gw2stats#readme",
   "devDependencies": {
     "@types/gh-pages": "^3.2.0",
     "@types/node": "^16.10.1",
