@@ -10,7 +10,7 @@ const storePath = join(
   __dirname,
   `../stats/${timestamp.getFullYear()}/${
     timestamp.getMonth() + 1
-  } /${timestamp.getDate()}`
+  }/${timestamp.getDate()}`
 );
 
 if (!existsSync(storePath)) {
