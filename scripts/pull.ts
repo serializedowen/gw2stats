@@ -3,12 +3,14 @@ import { existsSync, mkdirSync } from 'fs';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import generateHTML from './generateHTML';
-import publish from './publish';
+// import publish from './publish';
 
 const timestamp = new Date();
 const storePath = join(
   __dirname,
-  `../stats/${timestamp.getFullYear()}/${timestamp.getMonth()}/${timestamp.getDate()}`
+  `../stats/${timestamp.getFullYear()}/${
+    timestamp.getMonth() + 1
+  } /${timestamp.getDate()}`
 );
 
 if (!existsSync(storePath)) {
@@ -56,6 +58,5 @@ Promise.all(
       })
       .catch(console.log);
   })
-)
-  .then(() => generateHTML(join(__dirname, '../stats')))
-  .then(() => publish());
+).then(() => generateHTML(join(__dirname, '../stats')));
+// .then(() => publish());
