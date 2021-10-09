@@ -21,7 +21,7 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: node scripts/pull.js ${{secrets.APITOKEN}}
-      - name: Commit report
+      - name: Commit stats files
         run: |
           git config --global user.name 'stats-admin'
           git config --global user.email 'wjh199455@gmail.com'
@@ -29,7 +29,10 @@ jobs:
           git commit -am "ci: pulled latest stats"
           git push
 
-      - name: Deploy 
+      - name: Generate HTML archives
+        run: node scripts/generateHTML.js
+
+      - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

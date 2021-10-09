@@ -2,7 +2,7 @@ import axios from 'axios';
 import { existsSync, mkdirSync } from 'fs';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
-import generateHTML from './generateHTML';
+// import generateHTML from './generateHTML';
 // import publish from './publish';
 
 const timestamp = new Date();
@@ -58,5 +58,6 @@ Promise.all(
       })
       .catch(console.log);
   })
-).then(() => generateHTML(join(__dirname, '../stats'), '/gw2stats'));
+);
+// .then(() => generateHTML(join(__dirname, '../stats'), '/gw2stats'));
 // .then(() => publish());

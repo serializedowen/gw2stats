@@ -1,4 +1,3 @@
-import { PathLike, readdirSync } from 'fs';
 import { readdir, writeFile } from 'fs/promises';
 import { join } from 'path';
 import { compileFile } from 'pug';
@@ -19,5 +18,7 @@ const visit = (path: string, prefix: string = '') => {
       writeFile(join(path, 'index.html'), template({ links, title: path }))
     );
 };
+
+visit(join(__dirname, '../stats'), '/gw2stats');
 
 export default visit;
