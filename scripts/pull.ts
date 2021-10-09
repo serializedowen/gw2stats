@@ -23,7 +23,7 @@ const apis = [
   '/account/materials',
   '/account/wallet',
   '/commerce/delivery',
-  '/commerce/listings',
+  // '/commerce/listings',
 ];
 const args = process.argv.slice(2);
 const request = axios.create({
@@ -58,5 +58,5 @@ Promise.all(
       })
       .catch(console.log);
   })
-).then(() => generateHTML(join(__dirname, '../stats')));
+).then(() => generateHTML(join(__dirname, '../stats'), '/gw2stats'));
 // .then(() => publish());
